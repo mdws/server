@@ -11,6 +11,7 @@
     "eslint-plugin-react": "^6.3.0"
   },
   "dependencies": {
+    "jszip": "^3.1.3",
     "nightmare": "^2.7.0",
     "porygon": "^0.3.0",
     "ramda": "^0.22.1"
