@@ -1,8 +1,11 @@
 {
   "scripts": {
-    "serve:dev": "nodemon server.js",
-    "start": "cp .env.example .env; npm install",
+    "start": "node server.js",
+    "start:dev": "nodemon server.js",
     "test": "eslint lib/**/*.js test/**/*.js && ava"
+  },
+  "engines": {
+    "node": "6.3.0"
   },
   "devDependencies": {
     "ava": "^0.16.0",
