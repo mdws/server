@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "start": "node server.js",
-    "start:dev": "nodemon server.js",
+    "start": "make; node server.js",
+    "start:dev": "make; nodemon server.js",
     "test": "eslint lib/**/*.js test/**/*.js && ava"
   },
   "engines": {
