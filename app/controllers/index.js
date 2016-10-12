@@ -1,5 +1,5 @@
-const Controllers = {
-  SoundCloud: require('./soundcloud'),
-};
+const SoundCloud = require('./soundcloud');
 
-module.exports = Controllers;
+module.exports = {
+  SoundCloud,
+};

@@ -1,7 +1,7 @@
 const SoundCloud = require('../../lib/soundcloud');
 const { fixUrl } = require('../../lib/utils');
 
-const index = function* () {
+const index = function* index() {
   const queryUrl = this.request.query.url;
 
   // No url specified, bad request

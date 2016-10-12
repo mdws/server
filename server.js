@@ -26,9 +26,7 @@ app.on('error', console.error);
 /**
  * Get required data for application context
  */
-Promise.all([
-  SoundCloud.getConfig(),
-]).then(([ soundcloud ]) => {
+SoundCloud.getConfig().then((soundcloud) => {
   /**
    * Set services configuration
    */
