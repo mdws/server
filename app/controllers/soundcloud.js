@@ -18,7 +18,7 @@ const index = function* index() {
 
   try {
     const data = yield SoundCloud.download(config, url);
-    this.set('Content-Disposition', `attachment; filename="${data.filename}"`);
+    this.set('Content-Disposition', `attachment; filename="${encodeURIComponent(data.filename)}"`);
     this.body = data.buffer;
   } catch (err) {
     // TODO: Add logging
