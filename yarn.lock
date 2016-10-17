@@ -2664,6 +2664,10 @@ mkdirp@^0.5.0, mkdirp@^0.5.1, "mkdirp@>=0.5 0", mkdirp@~0.5.0:
   dependencies:
     minimist "0.0.8"
 
+moment:
+  version "2.15.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.15.1.tgz#e979c2a29e22888e60f396f2220a6118f85cd94c"
+
 ms@^0.7.1, ms@0.7.1:
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.1.tgz#9cd13c03adbff25b65effde7ce864ee952017098"
@@ -3022,9 +3026,9 @@ pluralize@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-1.2.1.tgz#d1a21483fd22bb41e58a12fa3421823140897c45"
 
-porygon@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/porygon/-/porygon-0.3.0.tgz#d9a33318a6d104d9ca7d856caeaa1e32104e5ead"
+porygon:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/porygon/-/porygon-0.4.0.tgz#dad64fa001ac8740e632aa060b7390e6e59331f5"
 
 power-assert-context-formatter@^1.0.4:
   version "1.1.0"
