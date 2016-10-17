@@ -3026,9 +3026,9 @@ pluralize@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-1.2.1.tgz#d1a21483fd22bb41e58a12fa3421823140897c45"
 
-porygon:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/porygon/-/porygon-0.4.0.tgz#dad64fa001ac8740e632aa060b7390e6e59331f5"
+porygon@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/porygon/-/porygon-0.4.1.tgz#18508d00a6f476558d37030f3f828e6c9e925330"
 
 power-assert-context-formatter@^1.0.4:
   version "1.1.0"
