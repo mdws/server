@@ -1,7 +1,13 @@
-const Controllers = require('./controllers');
 const Router = require('koa-router')();
 
-Router.get('/soundcloud', Controllers.SoundCloud.index);
-Router.get('/bandcamp', Controllers.Bandcamp.index);
+/**
+ * Routes
+ */
+const api = require('./routes/api');
+
+/**
+ * Attach routes
+ */
+Router.use(api);
 
 module.exports = Router;
