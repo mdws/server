@@ -1,13 +1,13 @@
 const Bandcamp = require('../../lib/bandcamp');
+const downloadRedirect = require('../utils/downloadRedirect');
 
 module.exports = {
   * get() {
-    const format = this.request.query.format;
+    const format = this.query.format;
 
     try {
-      const data = yield Bandcamp.download(format, url);
-      this.attachment(data.filename);
-      this.body = data.buffer;
+      const data = yield Bandcamp.download(format, this.state.url);
+      yield downloadRedirect(this, data);
     } catch (err) {
       // TODO: Add logging
       console.error(err);

@@ -2967,7 +2967,7 @@ pause-stream@0.0.11:
   dependencies:
     through "~2.3"
 
-pify@^2.0.0:
+pify, pify@^2.0.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/pify/-/pify-2.3.0.tgz#ed141a6ac043a849ea588498e7dca8b15330e90c"
 
@@ -3603,6 +3603,13 @@ tar@~2.2.0, tar@~2.2.1:
     block-stream "*"
     fstream "^1.0.2"
     inherits "2"
+
+tempfile:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/tempfile/-/tempfile-1.1.1.tgz#5bcc4eaecc4ab2c707d8bc11d99ccc9a2cb287f2"
+  dependencies:
+    os-tmpdir "^1.0.0"
+    uuid "^2.0.1"
 
 text-table@^0.2.0, text-table@~0.2.0:
   version "0.2.0"

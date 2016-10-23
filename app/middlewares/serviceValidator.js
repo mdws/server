@@ -1,7 +1,7 @@
 const { fixUrl } = require('../../lib/utils');
 
 function* serviceValidator(next) {
-  const url = this.request.query.url;
+  const url = this.query.url;
 
   // No url, bad request
   if (!url) {

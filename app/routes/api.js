@@ -15,7 +15,7 @@ const services = router({ prefix: '/services' });
 /**
  * Set API routes
  */
-api.get('/download', Controllers.download.get);
+api.get('/download/:id', Controllers.download.get);
 
 /**
  * Set service routes and middlewares
