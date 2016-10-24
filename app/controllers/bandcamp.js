@@ -9,8 +9,7 @@ module.exports = {
       const data = yield Bandcamp.download(format, this.state.url);
       yield downloadRedirect(this, data);
     } catch (err) {
-      // TODO: Add logging
-      console.error(err);
+      this.log.error(err);
       this.status = 500;
     }
   }

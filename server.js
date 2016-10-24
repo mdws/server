@@ -1,4 +1,6 @@
 const koa = require('koa');
+const koaBunyanLogger = require('koa-bunyan-logger');
+
 const Config = require('./config');
 const Router = require('./app/router');
 const SoundCloud = require('./lib/soundcloud');
@@ -14,14 +16,38 @@ const app = koa();
 app.env = Config.app.env;
 
 /**
+ * Set loggers
+ */
+app.use(koaBunyanLogger({
+  streams: [
+    {
+      level: 'info',
+      type: 'rotating-file',
+      path: 'logs/all.log',
+      period: '1d',
+      count: 7,
+    },
+    {
+      level: 'error',
+      type: 'rotating-file',
+      path: 'logs/error.log',
+      period: '1d',
+      count: 7,
+    },
+  ],
+}));
+
+app.use(koaBunyanLogger.requestLogger());
+
+/**
+ * Disable default error handler
+ */
+app.on('error', () => {});
+
+/**
  * Set routes
  */
 app.use(Router.routes());
-
-/**
- * Set error handler
- */
-app.on('error', console.error);
 
 /**
  * Get required data for application context

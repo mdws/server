@@ -15,8 +15,7 @@ module.exports = {
       this.attachment(filename);
       this.body = yield readFile(tmpfile);
     } catch (err) {
-      // TODO: Add logging
-      console.error(err);
+      this.log.error(err);
       this.throw(500);
     } finally {
       fs.unlink(tmpfile);

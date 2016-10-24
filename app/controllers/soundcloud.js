@@ -9,11 +9,10 @@ module.exports = {
     }, this.app.context.services.soundcloud);
 
     try {
-      const data = yield SoundCloud.download(config, this.state.url);
+      const data = yield SoundCloud.download({}, this.state.url);
       yield downloadRedirect(this, data);
     } catch (err) {
-      // TODO: Add logging
-      console.error(err);
+      this.log.error(err);
       this.throw(500);
     }
   },

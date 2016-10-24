@@ -2,7 +2,9 @@
   "scripts": {
     "start": "make; node server.js",
     "start:dev": "make; nodemon server.js",
-    "test": "eslint .; ava"
+    "test": "eslint .; ava",
+    "log:all": "tail -f logs/all.log | ./node_modules/bunyan/bin/bunyan",
+    "log:errors": "tail -f logs/error.log | ./node_modules/bunyan/bin/bunyan"
   },
   "engines": {
     "node": "6.3.0"
@@ -22,6 +24,7 @@
     "jsdom": "^9.6.0",
     "jszip": "^3.1.3",
     "koa": "^1.2.4",
+    "koa-bunyan-logger": "^1.3.0",
     "koa-router": "^5.4.0",
     "moment": "^2.15.1",
     "pify": "^2.3.0",
