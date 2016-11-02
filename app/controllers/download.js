@@ -5,6 +5,7 @@ const { tmpdir } = require('os');
 
 const TMPDIR = tmpdir();
 const readFile = pify(fs.readFile);
+const unlink = pify(fs.unlink);
 
 module.exports = {
   * get() {
@@ -14,11 +15,11 @@ module.exports = {
     try {
       this.attachment(filename);
       this.body = yield readFile(tmpfile);
+
+      yield unlink(tmpfile);
     } catch (err) {
       this.log.error(err);
       this.throw(500);
-    } finally {
-      fs.unlink(tmpfile);
     }
   },
 };
