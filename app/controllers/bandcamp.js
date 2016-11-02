@@ -12,5 +12,5 @@ module.exports = {
       this.log.error(err);
       this.status = 500;
     }
-  }
+  },
 };
