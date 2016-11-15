@@ -23,6 +23,7 @@ api.get('/download/:id', Controllers.download.get);
 services.use(serviceValidator);
 services.get('/bandcamp', Controllers.bandcamp.get);
 services.get('/soundcloud', Controllers.soundcloud.get);
+services.get('/youtube', Controllers.youtube.get);
 
 /**
  * Prefix service routes to API route
