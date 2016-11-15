@@ -3856,6 +3856,10 @@ verror@1.3.6:
   dependencies:
     extsprintf "1.0.2"
 
+vm2:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/vm2/-/vm2-3.1.0.tgz#9b9dccec4dc39d65aaddf590f3a3d4294d0abea1"
+
 webidl-conversions@^3.0.0, webidl-conversions@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/webidl-conversions/-/webidl-conversions-3.0.1.tgz#24534275e2a7bc6be7bc86611cc16ae0a5654871"
