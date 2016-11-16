@@ -8,7 +8,7 @@ ARG APP_DIR=/opt/app/
 RUN useradd --user-group --create-home --home-dir /var/$APP_USER --shell /bin/false $APP_USER
 
 # Install yarn and ffmpeg
-RUN echo 'deb http://ftp.de.debian.org/debian jessie-backports main' >> /etc/apt/sources.list \
+RUN echo 'deb http://ftp.us.debian.org/debian jessie-backports main' >> /etc/apt/sources.list \
   ; apt-get update -y && apt-get install -y ffmpeg \
   ; npm install -g yarn
 
