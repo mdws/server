@@ -1,5 +1,5 @@
 const SoundCloud = require('../../lib/soundcloud');
-const downloadRedirect = require('../utils/downloadRedirect');
+const downloadResponse = require('../utils/downloadResponse');
 
 module.exports = {
   * get() {
@@ -10,7 +10,7 @@ module.exports = {
 
     try {
       const data = yield SoundCloud.download(config, this.state.url);
-      yield downloadRedirect(this, data);
+      yield downloadResponse(this, data);
     } catch (err) {
       this.log.error(err);
       this.throw(500);

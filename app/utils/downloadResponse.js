@@ -12,7 +12,7 @@ const writeFile = pify(fs.writeFile);
 /**
  * TODO
  */
-const downloadRedirect = R.curry((ctx, data) => {
+const downloadResponse = R.curry((ctx, data) => {
   if (ctx.query.direct === 'true') {
     ctx.attachment(data.filename);
     ctx.body = data.buffer;
@@ -29,10 +29,9 @@ const downloadRedirect = R.curry((ctx, data) => {
       query: { f: data.filename },
     });
 
-    ctx.redirect(location);
     ctx.body = { location };
   });
 });
 
-/** @module downloadRedirect */
-module.exports = downloadRedirect;
+/** @module downloadResponse */
+module.exports = downloadResponse;

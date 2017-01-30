@@ -1,11 +1,11 @@
 const YouTube = require('../../lib/youtube');
-const downloadRedirect = require('../utils/downloadRedirect');
+const downloadResponse = require('../utils/downloadResponse');
 
 module.exports = {
   * get() {
     try {
       const data = yield YouTube.download(this.state.url);
-      yield downloadRedirect(this, data);
+      yield downloadResponse(this, data);
     } catch (err) {
       this.log.error(err);
       this.status = 500;
