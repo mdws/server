@@ -1,4 +1,5 @@
 const koa = require('koa');
+const cors = require('kcors');
 const koaBunyanLogger = require('koa-bunyan-logger');
 
 const Config = require('./config');
@@ -14,6 +15,11 @@ const app = koa();
  * Set environment
  */
 app.env = Config.app.env;
+
+/**
+ * Set CORS
+ */
+app.use(cors());
 
 /**
  * Set loggers
