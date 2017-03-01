@@ -2,7 +2,7 @@
   "scripts": {
     "start": "make; node server.js",
     "start:dev": "make; nodemon server.js",
-    "test": "eslint .; ava",
+    "test": "eslint . && ava",
     "log:all": "tail -f logs/all.log | ./node_modules/bunyan/bin/bunyan",
     "log:errors": "tail -f logs/error.log | ./node_modules/bunyan/bin/bunyan"
   },
@@ -23,10 +23,12 @@
     "browser-id3-writer": "^2.3.1",
     "dotenv": "^2.0.0",
     "fluent-ffmpeg": "^2.1.0",
+    "http-status-codes": "^1.1.6",
     "jsdom": "^9.6.0",
     "jszip": "^3.1.3",
     "kcors": "^1.3.1",
     "koa": "^1.2.4",
+    "koa-bodyparser": "^2.3.0",
     "koa-bunyan-logger": "^1.3.0",
     "koa-router": "^5.4.0",
     "moment": "^2.15.1",

@@ -10,22 +10,15 @@ const { basename } = require('path');
 const writeFile = pify(fs.writeFile);
 
 /**
- * TODO
+ *
  */
-const downloadResponse = R.curry((ctx, data) => {
-  if (ctx.query.direct === 'true') {
-    ctx.attachment(data.filename);
-    ctx.body = data.buffer;
-
-    return Promise.resolve();
-  }
-
+const exportLocation = R.curry((ctx, data) => {
   const tmp = tempfile();
   return writeFile(tmp, data.buffer).then(() => {
     const location = url.format({
       protocol: ctx.protocol,
       host: ctx.host,
-      pathname: `/api/v1/download/${basename(tmp)}`,
+      pathname: `/api/v1/export/${basename(tmp)}`,
       query: { f: data.filename },
     });
 
@@ -33,5 +26,5 @@ const downloadResponse = R.curry((ctx, data) => {
   });
 });
 
-/** @module downloadResponse */
-module.exports = downloadResponse;
+/** @module exportLocation */
+module.exports = exportLocation;

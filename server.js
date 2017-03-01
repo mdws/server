@@ -1,5 +1,6 @@
 const koa = require('koa');
 const cors = require('kcors');
+const bodyParser = require('koa-bodyparser');
 const koaBunyanLogger = require('koa-bunyan-logger');
 
 const Config = require('./config');
@@ -15,11 +16,6 @@ const app = koa();
  * Set environment
  */
 app.env = Config.app.env;
-
-/**
- * Set CORS
- */
-app.use(cors());
 
 /**
  * Set loggers
@@ -49,6 +45,12 @@ app.use(koaBunyanLogger.requestLogger());
  * Disable default error handler
  */
 app.on('error', () => {});
+
+/**
+ * Set middlewares
+ */
+app.use(cors());
+app.use(bodyParser());
 
 /**
  * Set routes

@@ -1,4 +1,5 @@
 const fs = require('fs');
+const HttpStatus = require('http-status-codes');
 const path = require('path');
 const pify = require('pify');
 const { tmpdir } = require('os');
@@ -19,7 +20,7 @@ module.exports = {
       yield unlink(tmpfile);
     } catch (err) {
       this.log.error(err);
-      this.throw(500);
+      this.throw(HttpStatus.INTERNAL_SERVER_ERROR);
     }
   },
 };

@@ -1,14 +1,26 @@
+const exportLocation = require('../utils/exportLocation');
+const HttpStatus = require('http-status-codes');
 const YouTube = require('../../lib/youtube');
-const downloadResponse = require('../utils/downloadResponse');
+const { fixUrl } = require('../../lib/utils');
 
 module.exports = {
-  * get() {
+  * info() {
     try {
-      const data = yield YouTube.download(this.state.url);
-      yield downloadResponse(this, data);
+      const url = fixUrl(this.query.url);
+      this.body = yield YouTube.getInfo(url);
     } catch (err) {
       this.log.error(err);
-      this.status = 500;
+      this.throw(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+  },
+
+  * download() {
+    try {
+      const data = yield YouTube.download(this.request.body);
+      yield exportLocation(this, data);
+    } catch (err) {
+      this.log.error(err);
+      this.throw(HttpStatus.INTERNAL_SERVER_ERROR);
     }
   },
 };

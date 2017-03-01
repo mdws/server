@@ -4,30 +4,33 @@ const Controllers = require('../controllers');
 /**
  * Middlewares
  */
-const serviceValidator = require('../middlewares/serviceValidator');
+const requireField = require('../middlewares/requireField');
 
 /**
  * Create routes
  */
 const api = router({ prefix: '/api/v1' });
-const services = router({ prefix: '/services' });
+const info = router({ prefix: '/info' });
+const download = router({ prefix: '/download' });
 
 /**
- * Set API routes
+ * Set API routes and middlewares
  */
-api.get('/download/:id', Controllers.download.get);
+api.get('/export/:id', Controllers.export.get);
 
-/**
- * Set service routes and middlewares
- */
-services.use(serviceValidator);
-services.get('/bandcamp', Controllers.bandcamp.get);
-services.get('/soundcloud', Controllers.soundcloud.get);
-services.get('/youtube', Controllers.youtube.get);
+info.use(requireField('query', 'url'));
+info.get('/bandcamp', Controllers.bandcamp.info);
+info.get('/soundcloud', Controllers.soundcloud.info);
+info.get('/youtube', Controllers.youtube.info);
+
+download.post('/bandcamp', Controllers.bandcamp.download);
+download.post('/soundcloud', Controllers.soundcloud.download);
+download.post('/youtube', Controllers.youtube.download);
 
 /**
  * Prefix service routes to API route
  */
-api.use(services.routes());
+api.use(info.routes());
+api.use(download.routes());
 
 module.exports = api.routes();
